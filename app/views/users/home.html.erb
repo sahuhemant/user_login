@@ -1,0 +1,13 @@
+<h1>Home Page</h1>
+<% flash.each do |type, message| %>
+  <div class="<%= type %>"><%= message %></div>
+<% end %>
+
+<% if session[:user_id] %>
+  <h2>Welcome <%= session[:username] %></h2>
+<% else %>
+  <h2>Create User</h2>
+  <%= link_to 'Create User', create_path %>
+  <h2>Login</h2>
+  <%= link_to 'Login', login_path %>
+<% end %>
